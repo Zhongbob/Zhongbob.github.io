@@ -1,0 +1,116 @@
+.about-me-section{
+    display:flex;
+    flex-direction: column;
+    row-gap: 3em;
+    margin:0 2em;
+}
+.about-me-section h2{
+    color:var(--headerColor);
+    font-size: 3em;
+    text-align: center  ;
+}
+
+.about-me-section p{
+    color:var(--textColor3);
+    width:calc(30vw + 100px);
+    line-height:2em;
+    text-align: center;
+}
+.sub-section-1 p, .sub-section-2 p, .sub-section-3 p{
+    margin:auto;
+}
+.sub-section-2 > div{
+    position:relative;
+}
+.sub-section-2{
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "text img1 img2" "text img3 img4";
+    row-gap: 0 !important;
+}
+
+.sub-section-3{
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "img1 img2 text" "img3 img4 text";
+    row-gap: 0 !important;
+}
+.sub-section-2>p{
+    grid-area:text;
+}
+.sub-section-2>img:nth-child(2){
+    grid-area:img1;
+    height:120%;
+}
+.sub-section-2>img:nth-child(3){
+    grid-area:img4;
+    height:120%;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.sub-section-3>p{
+    grid-area:text;
+}
+.sub-section-3>img:nth-child(2){
+    grid-area:img1;
+    height:120%;
+}
+.sub-section-3>img:nth-child(3){
+    grid-area:img4;
+    height:120%;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+/* .sub-section-2>img:nth-child(2){
+    grid-area:img4;
+} */
+.about-me-sub-section{
+    display:grid;
+    row-gap: 2em;
+    position:relative;
+    min-height: 18em;
+    align-content: center;
+}
+
+.about-me-sub-section img{
+    position:absolute;
+    width:15em;
+    z-index: -1;
+    opacity:0.5;
+    animation: aboutMeImgFade 0.5s backwards;
+    box-shadow: var(--amtX) var(--amtY) 0.5em black;
+    --amtX: 1em;
+    --amtY:1em;
+}
+
+#meimg1{
+    top:0;
+    left:0;
+}
+#meimg2{
+    bottom:0;
+    right:0;
+    --amtX: -1em;
+    --amtY:1em;
+    animation-delay: 0.5s;
+}
+
+.sub-section-2 img{
+    height:70%;
+    width: unset;
+}
+
+
+@keyframes aboutMeImgFade{
+    0%{
+        opacity:0;
+        transform:translate(var(--amtX), var(--amtY))
+    }
+    100%{
+        opacity:0.5;
+        transform:translate(0);
+        box-shadow: var(--amtX) var(--amtY) 0.5em black;
+    }
+}

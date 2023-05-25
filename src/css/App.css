@@ -1,0 +1,21 @@
+.highlight{
+  color:var(--highlightColor)
+}
+a{
+  color:var(--highlightColor);
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.type{
+  border-right:5px solid var(--textColor1);
+  animation: typeAnimation 0.5s infinite alternate;
+}
+@keyframes typeAnimation{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity: 1;
+  }
+}

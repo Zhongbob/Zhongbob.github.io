@@ -1,0 +1,56 @@
+.short-desc-imgs{
+    width:50%;
+    position: relative;
+}
+.desc-img{
+    position:absolute;
+    --final-opacity:0.5;
+    animation:descImgFade 1s forwards;
+    opacity:0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+.desc-img:hover{
+    animation:fadeIn 1s forwards
+}
+#img1{
+    height:10em;
+    top:1em;
+    left:3em;
+    animation-delay:0s;
+}
+#img2{
+    width:15em;
+    top:2em;
+    right:3em;
+    z-index: 5;
+    animation-delay:1s;
+}
+
+#img3{
+    width:15em;
+    top:2em;
+    right:3em;
+    z-index: 5;
+    animation-delay:2s;
+}
+
+@keyframes descImgFade {
+    0%{
+        opacity:0;
+        transform:translateY(1em)
+    }
+    100%{
+        opacity:var(--final-opacity);
+        transform:translateY(0)
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:var(--final-opacity);
+    }
+    100%{
+        opacity:1;
+    }
+}
