@@ -2,6 +2,7 @@ import React, {useRef,useEffect,useState} from "react";
 import TopBar from "../components/TopBar";
 import ShortDesc from "../components/ShortDesc";
 import Cursor from "../components/Cursor";
+
 export default function ShortDescContainer(props){
     const descRef = useRef(null)
     const menuRef = useRef(null)
@@ -16,7 +17,7 @@ export default function ShortDescContainer(props){
         },2100)},[])
     return(
         <>
-        <div style = {{"position":"relative","width":"50%"}}>
+        <div style = {{"position":"relative","width":"40%"}}>
             <div ref = {descRef} className = "short-desc-container">
                 <TopBar menuRef = {menuRef} />
                 {toDisplay && <ShortDesc />}

@@ -79,10 +79,11 @@
     width:15em;
     z-index: -1;
     opacity:0.5;
-    animation: aboutMeImgFade 0.5s backwards;
+    animation: aboutMeImgFade 2s backwards;
     box-shadow: var(--amtX) var(--amtY) 0.5em black;
     --amtX: 1em;
     --amtY:1em;
+    display:none;
 }
 
 #meimg1{
@@ -94,7 +95,7 @@
     right:0;
     --amtX: -1em;
     --amtY:1em;
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 .sub-section-2 img{
