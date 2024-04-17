@@ -1,7 +1,7 @@
 import numpy as np
 import json
 
-t_values = np.linspace(0, 180, num=1000) # create an array of 1000 evenly spaced values between 0 and 180
+t_values = np.linspace(0, 180, num=1000) # create an arraydd of 1000 evenly spaced values between 0 and 180
 t_values_radians = np.radians(t_values) # convert degrees to radians
 
 x_values = (t_values/180 * np.cos(t_values_radians) + 1)*100 # calculate the x values using the Rectangular parametric function
