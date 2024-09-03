@@ -1,8 +1,9 @@
 import React from "react";
-import './css/App.css';
-import ShortDescSection from './containers/ShortDescSection.js';
-import AboutMeSection from './containers/AboutMeSection.js'
-import TimelineSection from './containers/TimelineSection.js'
+// import './css/App.css';
+import './index.css';
+import ShortDescSection from './containers/ShortDescSection';
+import AboutMeSection from './containers/AboutMeSection'
+import TimelineSection from './containers/TimelineSection'
 function App() {
   return (
     <div class = "App">

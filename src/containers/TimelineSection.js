@@ -3,7 +3,7 @@ import Heading from "../components/Heading"
 import img1 from "../imgs/peerview.png"
 import img2 from "../imgs/eatwhereleh.png"
 import TimelineItem from "../components/TimelineItem"
-import "../css/TimelineSection.css"
+// import "../css/TimelineSection.css"
 
 export default function TimelineSection(){
     return(
