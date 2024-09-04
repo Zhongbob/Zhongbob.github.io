@@ -15,10 +15,10 @@ const Heading: React.FC<HeadingProps> = ({ children }) => {
     }, []);
 
     return (
-        <h2 className = "text-headerColor text-6xl font-bold text-center">
+        <h2 className = "text-headerColor text-6xl font-bold text-center my-2">
             "
             {children.substring(0, idx)}
-            <span className="type"></span>
+            <span className="border-r-[5px] border-white border-solid animate-type"></span>
             "
         </h2>
     );
