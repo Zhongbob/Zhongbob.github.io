@@ -8,7 +8,7 @@ interface DescImgProps{
 const DescImg: React.FC<DescImgProps> = (props) => {
     return(
         <img className = 
-        {`${props.className} object-cover shadow-xl shadow-secondaryColor2 rounded-lg`} 
+        {`shadow-xl shadow-secondaryColor2 rounded-lg ${props.className}`} 
         src = {props.src} alt = {props.alt}/>
     )
 }

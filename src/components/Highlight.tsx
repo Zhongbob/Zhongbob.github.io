@@ -1,11 +1,12 @@
 import React from "react";
 interface HighlightProps{
-    children: React.ReactNode
+    children: React.ReactNode;
+    className?: string;
 }
 
-const Highlight: React.FC<HighlightProps> = (props) => {
+const Highlight: React.FC<HighlightProps> = ({children,className}) => {
     return(
-        <span className = "text-highlightColor">{props.children}</span>
+        <span className = {`text-highlightColor ${className}`}>{children}</span>
     )
 }
 

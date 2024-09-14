@@ -5,6 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      rotate: {
+        'x-180': 'rotateX(180deg)',
+        'y-180': 'rotateY(180deg)',
+      },
+      backfaceVisibility: {
+        hidden: 'hidden',
+      },
+
       animationDirection: {
         normal: 'normal',
         reverse: 'reverse',
@@ -100,12 +108,32 @@ module.exports = {
         cursor: 'cursor 5s forwards', // Customize duration and other properties
         type: 'type 0.7s infinite alternate',
       },
-
+      filter: {
+        'svg-textColor2': 'invert(99%) sepia(0%) saturate(27%) hue-rotate(262deg) brightness(84%) contrast(97%)',
+        'svg-highlightColor': 'invert(67%) sepia(40%) saturate(2786%) hue-rotate(180deg) brightness(90%) contrast(86%)',
+      },
     },
   },
   plugins: [
     function ({ addUtilities }) {
       const newUtilities = {
+        '.filter-svg-textColor2': {
+          filter: 'invert(99%) sepia(0%) saturate(27%) hue-rotate(262deg) brightness(84%) contrast(97%)',
+        },
+        '.filter-svg-highlightColor':{
+          filter: 'invert(67%) sepia(40%) saturate(2786%) hue-rotate(180deg) brightness(90%) contrast(86%)'
+        },
+        '.rotate-x-180': {
+          transform: 'rotateX(180deg)',
+        
+        },
+        
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        },
+        '.backface-visible': {
+          'backface-visibility': 'visible',
+        },
         '.animate-delay-100': { 'animation-delay': '100ms' },
         '.animate-delay-200': { 'animation-delay': '200ms' },
         '.animate-delay-300': { 'animation-delay': '300ms' },

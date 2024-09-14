@@ -11,10 +11,10 @@ interface HighlightImageProps {
 }
 const HighlightImage: React.FC<HighlightImageProps> = ({ src, alt, children, imageClass,url }) => {
     return (
-        <a className="overflow-visible" href = {url}>
-            <Highlight>{children}</Highlight>
+        <a className="overflow-visible group" href = {url}>
+            <Highlight className = "group-hover:brightness-125 transition duration-300 underline">{children}</Highlight>
             
-            <DescImg src={src} alt={alt} className={`${imageClass} group-hover:brightness-150 transition duration-300 absolute left-0`} />
+            <DescImg src={src} alt={alt} className={`${imageClass} group-hover:brightness-125 group-hover:z-10 group-hover:scale-110 transition duration-300 absolute`} />
         </a>
     );
 }

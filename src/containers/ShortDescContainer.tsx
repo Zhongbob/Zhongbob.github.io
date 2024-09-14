@@ -1,8 +1,8 @@
 import React, {useRef,useEffect,useState} from "react";
 import Cursor from "../components/Cursor";
 import Highlight from "../components/Highlight";
-import DropDown from "../components/DropDown";
-
+import DropDownAbout from "../components/DropDownAbout";
+import DoubleArrow from "../icons/DoubleArrow";
 const ShortDescContainer: React.FC = () => {
 
     
@@ -27,19 +27,21 @@ const ShortDescContainer: React.FC = () => {
     }, []);
     return(
         <>
-        <div className= "w-full h-full relative col-span-5">
+        <div className= "w-full h-full relative col-span-12 lg:col-span-5 ">
             <div className = {`relative w-full bg-secondaryColor1 h-full 
                             ${isMenuVisible ? "translate-x-0":"-translate-x-full"}
                             transform transition-transform duration-[700ms] ease-out`}>
-                <div ref = {descRef} className = "short-desc-container">
-                    <div className = "bg-secondaryColor2 py-1 px-2 font-bold">
-                        <DropDown />
+                <div ref = {descRef} className="h-full">
+                    <div className = "bg-secondaryColor2 py-1 px-2 font-bold items-center flex">
+                        <DropDownAbout />
                         ABOUT-ME
                     </div>
-                    <div className = {`ml-3 border-l-2 px-3 my-4 h-[80vh] overflow-hidden transition-all duration-700 ${isDescVisible ? "max-h-[80vh]":"max-h-0"}`}>
-                        <h1 className = "underline text-6xl font-bold leading-[6rem]">Chua<br/>Zhong Ding</h1>
-                        <p className = "ml-4 m-6">An Aspiring Software Developer with a passion for creating Software that <br/> <Highlight>improves people's lives.</Highlight> </p>
-                        <p className = "text-base text-highlightColor underline">Scroll for More</p>
+                    <div className = {`ml-3 border-l-2 px-3 my-4 h-5/6 overflow-hidden transition-all duration-700 ${isDescVisible ? "max-h-[80%]":"max-h-0"}`}>
+                        <h1 className = "underline text-4xl lg:text-6xl font-bold leading-[3rem] lg:leading-[6rem]">Chua<br/>Zhong Ding</h1>
+                        <p className = "ml-4 m-6">An Aspiring Software Developer with a passion for creating Software that <br/> <span className="text-textColor3">improves people's lives.</span> </p>
+                        <p className = "text-base text-highlightColor border-b-2 border-highlightColor w-fit animate-pulse">Scroll for More 
+                            <DoubleArrow className="
+                w-3 h-3 inline-block filter-svg-highlightColor ml-1 animate-bounce" /></p>
                     </div>
                 </div>
                 

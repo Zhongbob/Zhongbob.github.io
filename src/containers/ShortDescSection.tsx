@@ -5,7 +5,7 @@ import ShortDescImgsContainer from "./ShortDescImgsContainer";
 
 export default function ShortDescSection(){
     return(
-        <section className = "h-screen grid grid-cols-12 w-full">
+        <section className = "h-screen grid grid-cols-12 grid-rows-2 lg:grid-rows-1 w-full">
             <ShortDescContainer/>
             <ShortDescImgsContainer />
         </section>
