@@ -5,6 +5,8 @@ import SearchBar from "../components/SearchBar";
 import {Dropdown, DropdownProvider} from "../components/DropDown";
 import { Option } from "../misc/types";
 import Heading from "../components/Heading";
+import { Helmet } from 'react-helmet';
+
 const competitionNames = new Set(writeupDetails.map((writeup) => writeup.competition));
 const difficulties = new Set(["Easy","Medium","Hard"]);
 const categories = new Set(["Web"])
@@ -82,7 +84,19 @@ const Writeups: React.FC = () => {
     })
   },[searchQuery, competitionFilter, difficultyFilter, categoryFilter])
     return <>
-
+        <Helmet>
+          <title>Zhong Ding's Writeups</title>
+          <meta name="description" content="Zhong Ding's CTF Writeups." />
+          <meta property="og:title" content="Zhong Ding's CTF Writeups" />
+          <meta property="og:description" content="Creating software that improves people's lives." />
+          <meta property="og:image" content="https://zhongbob.github.io/logo.ico" />
+          <meta property="og:url" content="https://zhongbob.github.io" />
+          <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Zhong Ding's CTF Writeup" />
+          <meta name="twitter:description" content="Creating software that improves people's lives." />
+          <meta name="twitter:image" content="https://zhongbob.github.io/logo.ico" />
+        </Helmet>
         <Heading className="my-4 mt-12">Writeups</Heading>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 w-11/12 md:w-8/12 mx-auto gap-x-2 gap-y-4">
           <SearchBar className = "col-span-2 sm:col-span-3" searchQuery={searchQuery} onChange={handleSearchQuery}/>

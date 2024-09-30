@@ -9,6 +9,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // You can customize the style
 import { SyntaxHighlighterProps } from 'react-syntax-highlighter';
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 interface CodeProps extends React.HTMLAttributes<HTMLElement> {
     inline?: boolean;
     className?: string;
@@ -71,7 +72,7 @@ const Writeup: React.FC = () => {
             className="absolute 
             hover:brightness-125
             transition-all duration-200
-            top-2 right-2 bg-gray-200 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-sm"
+            top-2 right-2 bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm"
             onClick={() => handleCopy(codeString)}
           >
             Copy
@@ -82,19 +83,19 @@ const Writeup: React.FC = () => {
             </SyntaxHighlighter>
             </div>
           ) : (
-            <code className={className} {...props}>
+            <code className={`${className} whitespace-pre-wrap break-words`} {...props}>
               {children}
             </code>
           );
         },
         h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h1 className="text-5xl font-bold text-gray-800 dark:text-gray-100" {...props}>{children}</h1>
+            <h1 className="text-5xl font-bold text-gray-100" {...props}>{children}</h1>
           ),
           h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 w-full border-b-2 border-highlightColor py-3 my-2" {...props}>{children}</h2>
+            <h2 className="text-3xl font-bold text-gray-100 w-full border-b-2 border-highlightColor py-3 my-2" {...props}>{children}</h2>
           ),
           h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100" {...props}>{children}</h3>
+            <h3 className="text-2xl font-bold text-gray-100" {...props}>{children}</h3>
           ),
           strong: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <strong className="font-bold text-textColor3" {...props}>{children}</strong>
@@ -131,13 +132,27 @@ const Writeup: React.FC = () => {
         </>
     }
     return <>
-    <div className="mx-8">
+    <Helmet>
+      <title>Zhong Ding's Writeup on {writeup.title}</title>
+      <meta property="og:title" content="Zhong Ding's Writeups" />
+      <meta name="description" content="An Aspiring Software Developer with a passion for creating Software that improves people's lives." />
 
-        <Heading className="text-4xl font-bold px-8 box-border">{writeup.title}</Heading>
+      <meta property="og:description" content={`${writeup.desc}`} />
+      <meta property="og:image" content="https://zhongbob.github.io/logo.ico" />
+      <meta property="og:url" content={`https://zhongbob.github.io/writeup/${writeup.id}`} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`Writeup on ${writeup.title}`} />
+      <meta name="twitter:description" content={`${writeup.desc}`} />
+      <meta name="twitter:image" content="https://zhongbob.github.io/logo.ico" />
+    </Helmet>
+    <div className="mx-8 lg:mx-48">
+
+        <Heading className="text-4xl font-bold px-8 box-border mt-8">{writeup.title}</Heading>
         <p className="text-sm text-textColor2 my-4 text-center">Published On: {writeup.datePosted.toDateString()}</p>
         {nextPreviousUI(parseInt(id))}
         <div className="flex flex-col gap-2 text-base lg:text-xl">
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 w-full border-b-2 border-highlightColor py-3 my-2">Challenge Details</h2>
+            <h2 className="text-3xl font-bold text-textColor1 w-full border-b-2 border-highlightColor py-3 my-2">Challenge Details</h2>
             {writeup.solves !== null && <p className="text-textColor1" >Solves: <b className="text-textColor3">{writeup.solves}</b></p>}
             {writeup.points !== null && <p className="text-textColor1" >Points: <b className="text-textColor3">{writeup.points}</b></p>}
 
@@ -150,11 +165,11 @@ const Writeup: React.FC = () => {
             >
             Source Code/Distri 
             </a>}
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 w-full border-b-2 border-highlightColor py-3 my-2">Challenge Description</h2>
+            <h2 className="text-3xl font-bold text-textColor1 w-full border-b-2 border-highlightColor py-3 my-2">Challenge Description</h2>
             <p className="text-textColor1" >{writeup.desc}</p>
             {
                 writeup.hints && writeup.hints.length > 0 && <>
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 w-full border-b-2 border-highlightColor py-3 my-2">Hints</h2>
+                <h2 className="text-3xl font-bold text-textColor1 w-full border-b-2 border-highlightColor py-3 my-2">Hints</h2>
                 <ul className="list-disc list-inside ml-8">
                     {writeup.hints?.map((hint) => {
                         return <li className="text-textColor1">{hint}</li>

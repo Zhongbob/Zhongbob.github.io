@@ -368,7 +368,7 @@ NOTE: ADMIN_CREDS have been set in production. No need to worry about a cheese!`
         difficulty: "Easy",
         writeupFile: "baba is lost.md",
         sourceCode: "https://github.com/ISC2SG-YW/ISC2CTF-Public/tree/master/challenges/misc/Baba%20is%20lost",
-        id: 26
+        id: 24
 
     },
     {
@@ -383,7 +383,7 @@ NOTE: ADMIN_CREDS have been set in production. No need to worry about a cheese!`
         difficulty: "Medium",
         writeupFile: "kaboom.md",
         sourceCode: "https://github.com/ISC2SG-YW/ISC2CTF-Public/tree/master/challenges/misc/Kaboom",
-        id: 26
+        id: 25
 
     },
     {
@@ -401,6 +401,90 @@ Challenge Created By Ensign`,
         writeupFile: "Artisitic Odyessy Writeup.md",
         sourceCode: null,
         id: 26
+
+    },
+    {
+        title:"Language, Labyrinth and (Graphics)Magick",
+        desc:`Good job on identifying the source of the attack! We are one step closer to identifying the mysterious entity, but there's still much we do not know.
+
+Beyond Discord and Uber H3, seems like our enemies are super excited about AI and using it for image transformation. Your fellow agents have managed to gain access to their image transformation app. Is there anyyy chance we could find some vulnerabilities to identify the secrets they are hiding?`,
+        image:"llgm1.png",
+        solves: null,
+        points:null,
+        datePosted: new Date("2024-09-29"),
+        competition: "TISC 2024",
+        category: "Web",
+        difficulty: "Medium",
+        writeupFile: "llgm.md",
+        sourceCode: null,
+        id: 27
+
+    },
+    {
+        title:"Hardware isnt that Hard!",
+        desc:`Shucks... it seems like our enemies are making their own silicon chips??!? They have decided to make their own source of trust, a TPM (Trusted Platform Module) or I guess their best attempt at it.
+
+Your fellow agent smuggled one out for us to reverse engineer. Don't ask us how we did it, we just did it, it was hard ...
+
+All we know so far is that their TPM connects to other devices using the i2c bus and does some security stuff inside. Agent! Your mission, should you choose to accept it, is to get us unparalleled intel by finding their TPM's weakness and exfiltrating its secrets.
+
+You will be provided with the following compressed flash dump:
+- MD5 (flash_dump.bin.xz) = fdff2dbda38f694111ad744061ca2f8a
+
+Flash was dumped from the device using the command:
+esptool.py -p /dev/REDACTED -b 921600 read_flash 0 0x400000 flash_dump.bin
+
+You can perform your attack on a live TPM module via the i2c implant device hosted behind enemy lines`,
+        image:"hith1.png",
+        solves: null,
+        points:null,
+        datePosted: new Date("2024-09-29"),
+        competition: "TISC 2024",
+        category: "Hardware",
+        difficulty: "Hard",
+        writeupFile: "hith.md",
+        sourceCode: null,
+        id: 28
+
+    },
+    {
+        title:"Noncevigator",
+        desc:`I guess their Trusted Platform Modules were not so trusted afterall. What about blockchain? Blockchain is secure by design, right?
+
+It seems like our enemies may have hidden some of their treasures somewhere along in our little island, all secured by this blockchain technology.
+
+We have heard rumours that to access the treasure, you must navigate to the correct location and possess the correct value of the "number used only once". This unique code is essential for unlocking the fortified gate guarding the treasure!
+
+Ensure your wallet is sufficiently funded for travel and any potential challenges you may encounter. Your journey begins now. It's your mission now - crack the code and see what treasures they are hiding!`,
+        image:"noncevigator.png",
+        solves: null,
+        points:null,
+        datePosted: new Date("2024-09-30"),
+        competition: "TISC 2024",
+        category: "BlockChain",
+        difficulty: "Hard",
+        writeupFile: "noncevigator.md",
+        sourceCode: null,
+        id: 29
+
+    },
+    {
+        title:"Baby Flagchecker",
+        desc:`You've come so far, brave agents! Let us continue our mission to identify our threats, and retrieve the crucial information that they are hiding from the world.
+
+While scanning their network, your fellow agents chanced upon a tool used by the adversary that checks for the validity of a secret passphrase.
+
+We know that they use this phrase for establishing communications between one another, but the one we have is way outdated... It's time for an update.`,
+        image:"babyflagchecker.png",
+        solves: null,
+        points:null,
+        datePosted: new Date("2024-09-30"),
+        competition: "TISC 2024",
+        category: "BlockChain",
+        difficulty: "Hard",
+        writeupFile: "Baby FlagChecker.md",
+        sourceCode: null,
+        id: 30
 
     }
 

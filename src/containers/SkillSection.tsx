@@ -25,19 +25,19 @@ const skills : Array<Skill> = [
     },
     {
         name: "CSS",
-        image: "css.png",
+        image: "CSS.png",
         level: "Proficient",
         years: 3
     },
     {
         name: "SQL",
-        image: "sql.webp",
+        image: "SQL.webp",
         level: "Proficient",
         years: 3
     },
     {
         name: "PHP",
-        image: "php.png",
+        image: "PHP.png",
         level: "Intermediate",
         years: 3
     },
@@ -50,7 +50,7 @@ const skills : Array<Skill> = [
     },
     {
         name: "React",
-        image: "react.png",
+        image: "React.png",
         level: "Beginner",
         years: 1
     },
