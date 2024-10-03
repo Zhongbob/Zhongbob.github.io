@@ -486,6 +486,25 @@ We know that they use this phrase for establishing communications between one an
         sourceCode: null,
         id: 30
 
+    },
+    {
+        title:"Wallfacer",
+        desc:`Breaking news! We've managed to seize an app from their device.
+
+It seems to be an app that stores user data, but doesn’t seem to do much other than that... The other agent who recovered this said he heard them say something about parts of the app are only loaded during runtime, hiding crucial details.
+
+It's up to you now! Can you break through the walls and unveil the hidden secrets within this app?`,
+        image:"wallfacer1.png",
+        solves: null,
+        points:null,
+        datePosted: new Date("2024-10-02"),
+        competition: "TISC 2024",
+        category: "Reverse Engineering",
+        difficulty: "Hard",
+        writeupFile: "wallfacer.md",
+        sourceCode: null,
+        id: 31
+
     }
 
 ]

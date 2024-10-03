@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet';
 
 const competitionNames = new Set(writeupDetails.map((writeup) => writeup.competition));
 const difficulties = new Set(["Easy","Medium","Hard"]);
-const categories = new Set(["Web"])
+const categories = new Set(["Web","Reverse Engineering","BlockChain","Hardware"])
 const Writeups: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [competitionFilter, setCompetitionFilter] = useState<string>("All");

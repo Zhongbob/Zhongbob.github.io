@@ -5,11 +5,10 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Heading from '../components/Heading';
 import rehypeRaw from 'rehype-raw';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // You can customize the style
-import { SyntaxHighlighterProps } from 'react-syntax-highlighter';
+
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import CodeBlock from "../components/CodeBlock";
 interface CodeProps extends React.HTMLAttributes<HTMLElement> {
     inline?: boolean;
     className?: string;
@@ -57,31 +56,19 @@ const Writeup: React.FC = () => {
         })
 
     }, [id])
-    const handleCopy = (text: string) => {
-        navigator.clipboard.writeText(text);
-        alert("Copied to clipboard");
-    }
     // Function to render code blocks with syntax highlighting
     const components = {
         code: ({ inline, className, children, ...props }: CodeProps) => {
           const match = /language-(\w+)/.exec(className || '');
           const codeString = String(children).replace(/\n$/, '');
+          const matched = match ? match[1] : '';
+          
+          const language = matched !== '' ? matched.split("_")[0] : "plaintext";
+          const retract = matched === '' ? false : matched.includes("_")?matched.split("_")[1].toLowerCase() === "retract":false;
           return !inline && match ? (
-            <div className="relative">
-                 <button
-            className="absolute 
-            hover:brightness-125
-            transition-all duration-200
-            top-2 right-2 bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm"
-            onClick={() => handleCopy(codeString)}
-          >
-            Copy
-          </button>
-            <SyntaxHighlighter className = "rounded-lg border-2 border-highlightColor"
-            style={atomDark as any} language={match[1]} PreTag="div" {...props}>
+            <CodeBlock language = {language} retract = {retract} className = {className} props = {props}>
               {codeString}
-            </SyntaxHighlighter>
-            </div>
+            </CodeBlock>
           ) : (
             <code className={`${className} whitespace-pre-wrap break-words`} {...props}>
               {children}
@@ -191,7 +178,7 @@ const Writeup: React.FC = () => {
       </div> 
       {zoomImage && 
       <div className="fixed w-screen h-screen inset-0 bg-black/50 flex justify-center items-center" onClick = {exitZoom}>
-            <img className = "max-w-[80vw] max-h-[80vh] "src = {zoomImage}/>
+            <img className = "max-w-[80vw] max-h-[80vh] w-full h-auto"src = {zoomImage}/>
       </div>
       }
       </>
