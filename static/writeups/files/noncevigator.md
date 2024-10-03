@@ -9,7 +9,7 @@ We are given the rpc endpoint to connect to the network. We are also given a pla
 ## Understanding the Contracts
 We are provided with the Smart Contract source code in a solidity file.
 
-```solidity
+```solidity_retract
 pragma solidity ^0.8.19;
 
 contract Noncevigator {
@@ -103,7 +103,7 @@ From the challenge description, it seems there are 2 parts to the challenge. We 
 I used web3.js to interact with the challenge network. In order to interact with the contracts, we need the contract's *abi*, which is basically the data containing all the functions and variables in the contract. We can input the solidity file into [Remix](https://remix.ethereum.org) to retrieve the *abi*.
 
 We also need the vault's address, so we can call the *getVaultLocation* function in the *Noncevigator* contract to retrieve that.
-```javascript
+```javascript_retract
 const { Web3 } = require('web3');
 var ethJsUtil = require('ethereumjs-util');
 
@@ -179,7 +179,7 @@ The main issue to note is the order of execution of these 3 steps. The funds of 
 But what happens when we call the withdraw function again, before the funds are updated? Since the funds of the user have yet to be updated, the check will pass, and we will be able to withdraw funds again. This is known as a [Reentrancy Attack](https://www.cyfrin.io/blog/what-is-a-reentrancy-attack-solidity-smart-contracts#:~:text=A%20Reentrancy%20Attack%2C%20is%20a,to%20manipulate%20the%20contract%27s%20state.)
 
 Heres a script of a contract we can deploy which accomplishes this:
-```solidity
+```solidity_retract
 pragma solidity ^0.8.0;
 
 contract Attack {
@@ -235,7 +235,7 @@ To deploy the contract, we need the *bytecode* and the *abi*. We can input the s
 Deploy the code onto the network, call the *attack* function with your available funds, and then withdraw the funds from the contract after the reentrancy is completed. 
 
 **Code**
-```javascript
+```javascript_retract
 const attack_contract_bytecode = "0x..."
 const attackContractAbi =[
 	...
@@ -479,7 +479,7 @@ No error is returned, so we can use the service to check wheter our attack was s
 TISC{ReeN7r4NCY_4ND_deTerminI5TIc_aDDReSs}
 ```
 ## Full Code
-```javascript
+```javascript_RETRACT
 const { Web3 } = require('web3');
 var ethJsUtil = require('ethereumjs-util');
 

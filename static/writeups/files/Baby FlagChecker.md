@@ -118,7 +118,7 @@ I used [Dedaub](https://app.dedaub.com) to reverse the bytecode. You'll need to 
 The following code has been renamed for better readability.
 
 [Setup](https://app.dedaub.com/decompile?md5=1133a2b5e7691c606da22239323c7380)
-```solidity
+```solidity_RETRACT
 function check_password(uint256 varg0) public payable { 
     require(msg.data.length - 4 >= 32);
     MEM[MEM[64] + 68] = addr1_in_storage;
