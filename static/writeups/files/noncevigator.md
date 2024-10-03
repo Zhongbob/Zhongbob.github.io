@@ -999,3 +999,5 @@ async function investigateAddresses(){
 I forgot to .toLowerCase() the outputed hex address at first, so i spent 2 extra days on this challenge ;-; cri
 I even thought the nonce was somewhere in the millions, so I tried to search through all 2^32 possible nonce values.
 
+After the competition, someone in the Student Singapore Merger told me that there was another challenge which was suspiciously similar ;-; [HTB - Portal Noncense](https://medium.com/@rumpell/htb-portal-noncense-6a383a1c11e1). It seemed the challenge was just this + a Rentrancy attack ;-; Should've googled better
+
